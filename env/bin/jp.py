@@ -1,4 +1,4 @@
-#!/home/william/Desktop/backend/env/bin/python3
+#!/home/william/priti-store-backend/env/bin/python3
 
 import sys
 import json
