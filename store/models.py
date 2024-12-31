@@ -13,6 +13,7 @@ from django.utils.text import slugify
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from decimal import Decimal
 
 
 from userauths.models import User, user_directory_path, Profile
@@ -287,9 +288,10 @@ class Product(models.Model):
         return Product.objects.filter(category__in=self.category).count()
 
     # Calculates the discount percentage between old and new prices
-    def get_precentage(self):
-        new_price = ((self.old_price - self.price) / self.old_price) * 100
-        return round(new_price, 0)
+    def get_percentage(self):
+        discount = (self.old_price - self.price)  # Calculate the discount amount
+        discount_percentage = (discount / self.old_price) * 100  # Calculate the percentage
+        return round(discount_percentage, 0)
     
     # Calculates the average rating of the product
     def product_rating(self):
