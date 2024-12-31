@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-b*tuoe%^o+=^35$0fufrm=oamh^(o0tabn39(7ni12(i-oup+4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     "priti-store-backend.railway.app",  # Railway domain
@@ -38,7 +38,11 @@ ALLOWED_HOSTS = [
     "website-domain.com",              # Your custom domain (if applicable)
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://website-domain.com', 'https://127.0.0.1']
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-65de.up.railway.app',  # Railway domain
+    'https://website-domain.com',                  # Your custom domain
+    'https://127.0.0.1',                           # Local development
+]
 SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
 
 
