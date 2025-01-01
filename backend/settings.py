@@ -254,8 +254,6 @@ JAZZMIN_SETTINGS = {
     "site_title": "Mypriti-store",
     "site_header": "Mypriti-store",
     "site_brand": "priti-store Marketplace",
-    "site_icon": "images/favicon.ico",
-    "site_logo": "images/logos/logo.jpg",
     "welcome_sign": "Welcome To Priti-Store",
     "copyright": "All right reserved to Priti-Store",
     "user_avatar": "images/photos/logo.jpg",
