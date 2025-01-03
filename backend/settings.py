@@ -33,16 +33,23 @@ SECRET_KEY = 'django-insecure-b*tuoe%^o+=^35$0fufrm=oamh^(o0tabn39(7ni12(i-oup+4
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "priti-store-backend.railway.app",  # Railway domain
-    ".railway.app",                    # For all Railway subdomains
-    "website-domain.com",              # Your custom domain (if applicable)
+    "priti-store-backend.railway.app",  # Railway backend domain
+    "mypritistore.com",                 # Custom domain
+    "www.mypritistore.com",             # Custom domain with 'www'
+    ".railway.app",                     # All Railway subdomains
+    "ecommerce-frontend-two-ruddy.vercel.app",  # Vercel frontend domain
+    "127.0.0.1",                        # Localhost
+    "localhost",                        # Localhost with no port
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-65de.up.railway.app',  # Railway domain
-    'https://website-domain.com',                  # Your custom domain
-    'https://127.0.0.1',                           # Local development
+    'https://priti-store-backend.railway.app',        # Railway backend domain
+    'https://mypritistore.com',                       # Custom domain
+    'https://www.mypritistore.com',                   # Custom domain with 'www'
+    'https://ecommerce-frontend-two-ruddy.vercel.app',  # Vercel frontend domain
+    'http://127.0.0.1:8000',                          # Local development
 ]
+
 SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
 
 
