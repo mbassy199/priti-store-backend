@@ -43,13 +43,11 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://priti-store-backend.railway.app',        # Railway backend domain
-    'https://mypritistore.com',                       # Custom domain
-    'https://www.mypritistore.com',                   # Custom domain with 'www'
-    'https://ecommerce-frontend-two-ruddy.vercel.app',  # Vercel frontend domain
-    'http://127.0.0.1:8000',                          # Local development
+    'https://web-production-65de.up.railway.app',  # Railway domain
+    'https://website-domain.com',                  # Your custom domain
+    'https://127.0.0.1',
+    'https://ecommerce-frontend-two-ruddy.vercel.app',
 ]
-
 SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
 
 
