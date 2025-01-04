@@ -21,6 +21,8 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.views import APIView
 from rest_framework import status
+from rest_framework.pagination import PageNumberPagination
+
 
 # Serializers
 from userauths.serializer import MyTokenObtainPairSerializer, RegisterSerializer
@@ -73,10 +75,29 @@ class FeaturedProductListView(generics.ListAPIView):
     queryset = Product.objects.filter(status="published", featured=True)[:3]
     permission_classes = (AllowAny,)
 
+class ProductPagination(PageNumberPagination):
+    page_size = 10  # You can adjust the number of items per page as needed
+    page_size_query_param = 'page_size'
+    max_page_size = 100
+
+
 class ProductListView(generics.ListAPIView):
     serializer_class = ProductSerializer
-    queryset = Product.objects.filter(status="published")
     permission_classes = (AllowAny,)
+    pagination_class = ProductPagination  # Apply pagination
+
+    def get_queryset(self):
+        # Default query to get all published products
+        queryset = Product.objects.filter(status="published")
+
+        # Get the category slug from the query parameters (e.g., ?category=mens-perfume-87gx)
+        category_slug = self.request.query_params.get('category', None)
+
+        # If category slug is provided, filter products by that category's slug
+        if category_slug:
+            queryset = queryset.filter(category__slug=category_slug)
+
+        return queryset
 
 class ProductDetailView(generics.RetrieveAPIView):
     serializer_class = ProductSerializer
